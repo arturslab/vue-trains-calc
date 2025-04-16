@@ -1,0 +1,23 @@
+{
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "printWidth": 120,
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "endOfLine": "auto",
+    "vueIndentScriptAndStyle": true,
+    "htmlWhitespaceSensitivity": "ignore",
+    "atributesOrder": [
+        "id",
+        "class",
+        "name",
+        "src",
+        "href",
+        "alt",
+        "title",
+        "style",
+        "data-*"
+    ]
+}

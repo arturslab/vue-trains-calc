@@ -1,0 +1,35 @@
+{
+  "name": "vue-math-sdt",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Math Speed, distance and time project in Vue 3",
+  "author": "Artur Słaboszewski",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mdi/font": "7.4.47",
+    "roboto-fontface": "*",
+    "vue": "^3.4.31",
+    "vue-i18n": "10",
+    "vuetify": "^3.6.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-vue": "^10.0.0",
+    "globals": "^16.0.0",
+    "prettier": "3.5.3",
+    "sass": "1.77.8",
+    "sass-embedded": "^1.77.8",
+    "unplugin-fonts": "^1.1.1",
+    "unplugin-vue-components": "^0.27.2",
+    "vite": "^5.4.0",
+    "vite-plugin-vuetify": "^2.0.3",
+    "vue-eslint-parser": "^10.1.3"
+  }
+}
