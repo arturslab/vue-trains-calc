@@ -28,7 +28,7 @@
             <template v-slot:prepend>
               <v-tooltip location="bottom">
                 <template v-slot:activator="{ props }">
-                  <v-icon v-bind="props" icon="mdi-road-variant" size="x-large"></v-icon>
+                  <icon-base v-bind="props" icon="road" size="x-large" />
                 </template>
                 {{ $t('tooltipEnterValue', { field: label }) }}
               </v-tooltip>

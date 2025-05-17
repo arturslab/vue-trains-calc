@@ -1,17 +1,35 @@
 {
   "name": "vue-math-sdt",
+  "version": "1.0.2",
+  "description": "Math Speed, distance and time project in Vue 3",
   "private": true,
   "type": "module",
-  "version": "0.0.0",
-  "description": "Math Speed, distance and time project in Vue 3",
-  "author": "Artur Słaboszewski",
+  "author": {
+    "name": "Artur Słaboszewski",
+    "url": "https://melma.pl"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arturslab/vue-trains-calc.git"
+  },
+  "keywords": [
+    "vue",
+    "vuetify",
+    "vite",
+    "math",
+    "speed",
+    "distance",
+    "time"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build.wp": "vite build --base /wp-content/themes/vue-math-sdt/",
+    "build wp --no-cache": "vite build --base /wp-content/themes/vue-math-sdt/ --no-cache",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mdi/font": "7.4.47",
     "roboto-fontface": "*",
     "vue": "^3.4.31",
     "vue-i18n": "10",

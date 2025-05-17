@@ -1,9 +1,9 @@
 <template>
   <v-menu
     v-if="locale"
-    :close-on-content-click="false"
-    max-width="200"
-    min-width="200"
+    close-on-content-click
+    max-width="240"
+    min-width="240"
     offset-y
     transition="scale-transition"
   >
@@ -18,7 +18,7 @@
         outlined
         size="x-large"
       >
-        <img :src="langFlagSvg(locale)" :alt="$t(`lang.${locale}`)" class="btn-flag" />
+        {{locale}}
       </v-btn>
     </template>
 
@@ -30,7 +30,6 @@
         class="d-flex align-center"
         @click="setLanguage(item.value)"
       >
-        <img :src="item.img" alt="flag" class="flag" />
         {{ item.title }}
       </v-list-item>
     </v-list>
@@ -39,7 +38,7 @@
 
 <script>
   import { useI18n } from 'vue-i18n'
-  import { defaultLocale, languagesList, flagsSvg } from '@/lang'
+  import { defaultLocale, languagesList } from '@/lang'
 
   export default {
     name: 'LanguageSwitch',
@@ -52,16 +51,6 @@
       }
     },
     methods: {
-      langFlagSvg(lang) {
-        if (!lang) return ''
-
-        // check if lang is in flagsSvg object
-        if (!flagsSvg[lang]) {
-          console.warn(`Flag for language ${lang} not found`)
-          return ''
-        }
-        return flagsSvg[lang]
-      },
       getLanguage() {
         const storedLang = localStorage.getItem('lang')
         this.locale = storedLang || defaultLocale
@@ -73,7 +62,7 @@
         this.languages = Object.keys(languagesList).map(lang => ({
           title: this.$t(`lang.${lang}`),
           value: lang,
-          img: this.langFlagSvg(lang)
+          img: ''
         }))
       },
       setLanguage(langCode) {

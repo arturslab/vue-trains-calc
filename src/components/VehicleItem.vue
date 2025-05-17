@@ -4,24 +4,30 @@
       <h2 class="text-h5 font-weight-bold text-center mb-2">{{ name }}</h2>
     </template>
 
-    <v-card-text class="test">
+    <v-card-text>
       <div v-if="!calculationAdvancedMode" class="d-flex flex-column align-center mb-8">
         <v-btn-toggle v-model="chosenSolver" color="warning" divided mandatory>
           <v-tooltip :text="$t('tooltipButtonVelocity')" location="bottom">
             <template v-slot:activator="{ props }">
-              <v-btn v-bind="props" icon="mdi-speedometer" size="x-large" stacked value="velocity"></v-btn>
+              <v-btn v-bind="props" size="x-large" stacked value="velocity">
+                <icon-base size="x-large" icon="speed" />
+              </v-btn>
             </template>
           </v-tooltip>
 
           <v-tooltip :text="$t('tooltipButtonDistance')" location="bottom">
             <template v-slot:activator="{ props }">
-              <v-btn v-bind="props" icon="mdi-road-variant" size="x-large" stacked value="distance"></v-btn>
+              <v-btn v-bind="props" size="x-large" stacked value="distance">
+                <icon-base size="x-large" icon="road" />
+              </v-btn>
             </template>
           </v-tooltip>
 
           <v-tooltip :text="$t('tooltipButtonTime')" location="bottom">
             <template v-slot:activator="{ props }">
-              <v-btn v-bind="props" icon="mdi-clock-time-four-outline" size="x-large" stacked value="time"></v-btn>
+              <v-btn v-bind="props" size="x-large" stacked value="time">
+                <icon-base size="x-large" icon="clock" />
+              </v-btn>
             </template>
           </v-tooltip>
         </v-btn-toggle>
@@ -62,14 +68,14 @@
               <template v-slot:prepend>
                 <v-tooltip v-if="!readonly" location="bottom">
                   <template v-slot:activator="{ props }">
-                    <v-icon v-bind="props" :icon="icon" size="x-large"></v-icon>
+                    <icon-base v-bind="props" :icon="icon" size="x-large" />
                   </template>
                   {{ $t('tooltipEnterValue', { field: label }) }}
                 </v-tooltip>
 
                 <v-tooltip v-else location="bottom">
                   <template v-slot:activator="{ props }">
-                    <v-icon v-bind="props" :color="lockedBgColor" :icon="icon" size="x-large"></v-icon>
+                    <icon-base v-bind="props" :color="lockedBgColor" :icon="icon" size="x-large" />
                   </template>
                   {{ $t('tooltipCalculatedValue', { field: label }) }}
                 </v-tooltip>
@@ -96,7 +102,6 @@
 </template>
 
 <script>
-  // import { id, tr } from "vuetify/locale";
   import CalculatorMixin from '@/mixins/CalculatorMixin'
 
   export default {
@@ -110,7 +115,7 @@
         distanceMax: 100000,
         timeMax: 100000,
 
-        lockedBgColor: 'warning',
+        lockedBgColor: '#FF9800',
         lockedBorderColor: 'warning',
 
         formData: {
@@ -171,7 +176,7 @@
             disabled: this.chosenSolver === 'velocity',
             readonly: !this.calculationAdvancedMode && this.chosenSolver === 'velocity',
             show: true,
-            icon: 'mdi-speedometer'
+            icon: 'speed'
           },
           {
             id: 'distance',
@@ -187,7 +192,7 @@
             disabled: this.chosenSolver === 'distance',
             readonly: !this.calculationAdvancedMode && this.chosenSolver === 'distance',
             show: !this.calculationAdvancedMode,
-            icon: 'mdi-road-variant'
+            icon: 'road'
           },
           {
             id: 'time',
@@ -203,7 +208,7 @@
             disabled: this.chosenSolver === 'time',
             readonly: !this.calculationAdvancedMode && this.chosenSolver === 'time',
             show: !this.calculationAdvancedMode,
-            icon: 'mdi-clock-time-four-outline'
+            icon: 'clock'
           }
         ]
 

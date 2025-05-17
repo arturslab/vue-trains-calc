@@ -1,17 +1,17 @@
 <template>
-  <v-container>
-    <v-app-bar class="d-flex justify-space-between align-center">
+  <v-container fluid class="mt-100">
+    <v-app-bar class="d-flex justify-space-between align-center mb-6">
       <v-app-bar-title>{{ $t('titleApp') }}</v-app-bar-title>
       <language-switch class="mx-4" />
     </v-app-bar>
 
-    <v-row justify="center">
-      <v-col cols="12" sm="6" lg="3">
+    <v-row justify="center" style="margin-top:100px">
+      <v-col cols="12" sm="6" lg="6">
         <v-btn :color="calculationAdvancedMode ? 'default' : 'orange'" class="w-100" @click="setAdvancedMode(false)">
           {{ $t('labelSolverSimple') }}
         </v-btn>
       </v-col>
-      <v-col cols="12" sm="6" lg="3">
+      <v-col cols="12" sm="6" lg="6">
         <v-btn :color="calculationAdvancedMode ? 'orange' : 'dark'" class="w-100" @click="setAdvancedMode()">
           {{ $t('labelSolverAdvanced') }}
         </v-btn>
@@ -19,7 +19,7 @@
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="12" :md="calculationAdvancedMode ? 4 : 5" :lg="calculationAdvancedMode ? 2 : 4">
+      <v-col cols="12" :md="calculationAdvancedMode ? 4 : 6" :lg="calculationAdvancedMode ? 4 : 8">
         <vehicle-item
           :calculation-advanced-mode="calculationAdvancedMode"
           :name="calculationAdvancedMode ? $t('trainA') : $t('labelSolverSimple')"
@@ -29,23 +29,23 @@
         />
       </v-col>
 
-      <v-col cols="12" md="4" lg="2" v-if="calculationAdvancedMode">
+      <v-col cols="12" md="4" lg="4" v-if="calculationAdvancedMode">
         <distance-item @update="showResults" calculation-advanced-mode ref="distance" />
       </v-col>
 
-      <v-col cols="12" md="4" lg="2" v-if="calculationAdvancedMode">
+      <v-col cols="12" md="4" lg="4" v-if="calculationAdvancedMode">
         <vehicle-item :name="$t('trainB')" :order="2" @update="showResults" calculation-advanced-mode ref="vehicle2" />
       </v-col>
     </v-row>
 
     <v-row justify="center">
-      <v-col cols="12" md="8" lg="6">
+      <v-col cols="12">
         <v-alert :text="calculatorInfo" class="my-4 align-center" variant="tonal" />
       </v-col>
     </v-row>
 
     <v-row v-if="calculationAdvancedMode" justify="center">
-      <v-col col="12" md="8" lg="6">
+      <v-col col="12">
         <road-image :data="resultsAdvanced" />
       </v-col>
     </v-row>
